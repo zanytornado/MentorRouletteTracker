@@ -1,12 +1,12 @@
 {
-  "Author": "your name here",
-  "Name": "Sample Plugin",
-  "Punchline": "A short one-liner that shows up in /xlplugins.",
-  "Description": "A description that shows up in /xlplugins. List any major slash-command(s).",
+  "Author": "xanibabe",
+  "Name": "Mentor Roulette Tracker",
+  "Punchline": "Track your mentor roulettes and export your runs to a file",
+  "Description": "Stores information locally about your mentor roulette runs. Can be configured according to what information you would like to track. Export your results for free Reddit karma!",
   "ApplicableVersion": "any",
+  "RepoUrl": "https://github.com/zanytornado/MentorRouletteTracker",
   "Tags": [
-    "sample",
-    "plugin",
-    "goats"
+    "tracker",
+    "tracking"
   ]
 }
