@@ -4,6 +4,7 @@ using Dalamud.Plugin;
 using System.IO;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin.Services;
+using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using MentorRouletteTracker.Windows;
 
 namespace MentorRouletteTracker;
@@ -13,6 +14,7 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService] internal static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
     [PluginService] internal static ITextureProvider TextureProvider { get; private set; } = null!;
     [PluginService] internal static ICommandManager CommandManager { get; private set; } = null!;
+    [PluginService] internal static IClientState ClientState { get; private set; } = null!;
 
     private const string CommandName = "/pmycommand";
 
@@ -70,4 +72,9 @@ public sealed class Plugin : IDalamudPlugin
 
     public void ToggleConfigUI() => ConfigWindow.Toggle();
     public void ToggleMainUI() => MainWindow.Toggle();
+
+    public unsafe bool isMentor() {
+        var playerStatePtr = PlayerState.Instance();
+        return playerStatePtr->IsBattleMentor();
+    }
 }

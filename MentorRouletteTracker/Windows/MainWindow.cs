@@ -33,6 +33,19 @@ public class MainWindow : Window, IDisposable
 
     public override void Draw()
     {
+        if(Plugin.ClientState.LocalPlayer is null) {
+            ImGui.Text("Please select a character to verify mentor eligibilty.");
+        } else {
+            var characterName = Plugin.ClientState.LocalPlayer?.Name.ToString();
+            if (Plugin.isMentor()) {
+                ImGui.Text($"{characterName} is eligible for mentor roulette.");
+            } else {
+                ImGui.Text($"{characterName} is not eligible for mentor roulette.");
+
+                // TODO: add information on how to become eligible here
+            }
+        }
+        
         ImGui.Text($"The random config bool is {Plugin.Configuration.SomePropertyToBeSavedAndWithADefault}");
 
         if (ImGui.Button("Show Settings"))
